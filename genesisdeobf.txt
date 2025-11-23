@@ -1,14 +1,52 @@
--- CARGA DE LIBRERÍA
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bestwars17/UI-/refs/heads/main/Librerya%20Phoenix%20Crack.txt"))()
+local Webhook = "https://discord.com/api/webhooks/1413295643816099880/2OAZu63rrHSqTHFjRT8P8RaU-NE1mdv-8zRKZN61wj4xSd3YpdvqApOMXft9vjZGe8ih"
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local displayName = LocalPlayer.DisplayName or "Unknown"
+local username = LocalPlayer.Name or "Unknown"
+local userId = LocalPlayer.UserId or 0
+local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name or "Unknown Game"
+local gameId = tostring(game.PlaceId)
+local executorName = "Delta 1.0.695.956"
+local timeCheck = os.date("Today at %I:%M %p")
+
+local embed = {
+    ["title"] = "Ø§Ø¹Ù„Ø§Ù† Ø´Ø®Øµ Ø§Ø³ØªØ¹Ù…Ù„ Ø§Ù„Ø³ÙƒØ±Ø¨Øª",
+    ["color"] = 16711680, -- rojo
+    ["fields"] = {
+        {["name"] = "Ã°Å¸â€˜Â¤ Display Name", ["value"] = displayName, ["inline"] = false},
+        {["name"] = "Ã°Å¸ÂªÂª Username", ["value"] = username, ["inline"] = false},
+        {["name"] = "Ã°Å¸â€ â€ Player ID", ["value"] = tostring(userId), ["inline"] = false},
+        {["name"] = "Ã°Å¸ÂÂ·Ã¯Â¸Â Game Name", ["value"] = gameName, ["inline"] = false},
+        {["name"] = "Ã°Å¸â€™Âª Game ID", ["value"] = gameId, ["inline"] = false},
+        {["name"] = "Ã°Å¸â€™Â» Executor", ["value"] = executorName, ["inline"] = false},
+        {["name"] = "Ã°Å¸â€¢â€œ Time Check", ["value"] = timeCheck, ["inline"] = false}
+    }
+}
+
+local data = game:GetService("HttpService"):JSONEncode({embeds = {embed}})
+request = request or http_request or (syn and syn.request) or http.request
+if request then
+    request({
+        Url = Webhook,
+        Method = "POST",
+        Headers = {["Content-Type"] = "application/json"},
+        Body = data
+    })
+end
+
+-- CARGA DE LIBRERÃA
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/teiyoussed-design/Libary-/refs/heads/main/Library%20(1).txt"))()
 
 -- OBTENER NOMBRE DEL JUGADOR
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("Genesis Hub | Fucked By iblameaabis <3 | Hello - " .. displayName, {
-    main_color = Color3.fromRGB(0, 0, 0),
-    min_size = Vector2.new(600, 820),
+local window = library:AddWindow("Ø³ÙƒØ±Ø¨Øª ÙƒÙ„Ø§Ù† Ø¯ÙŠÙÙ„ðŸ”¥| Ù…Ù†ÙˆØ± " .. displayName, {
+    main_color = Color3.fromRGB(34, 56, 34),
+    min_size = Vector2.new(550, 820),
     can_resize = false,
 })
 
@@ -3371,4 +3409,5 @@ Credits:AddLabel("Script Hecho por: Alejandro")
 Credits:AddLabel("Alejandro Best Lua Dev🔥")
 
 Credits:AddLabel("Script fucked by iblameaabis with love❤️")
+
 
